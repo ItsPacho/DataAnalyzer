@@ -17,10 +17,28 @@ public class DAView {
 
 	private JTextField dataTF;
 	private JScrollPane dataTFS;
-	private JComboBox<String> humidityCB;
-	private JComboBox<String> velocityCB;
-	private JComboBox<String> temperatureCB;
-	private JComboBox<String> dataAnalysisCB;
+	private JComboBox<String> humidityCB = new JComboBox<String>();
+	private JComboBox<String> velocityCB = new JComboBox<String>();
+	private JComboBox<String> temperatureCB = new JComboBox<String>();
+	private JComboBox<String> dataAnalysisCB = new JComboBox<String>();
+	private JButton doRequest = new JButton();
+	private JButton doAnalysis = new JButton();
+
+	public JComboBox<String> getHumidityCB() {
+		return humidityCB;
+	}
+
+	public JComboBox<String> getVelocityCB() {
+		return velocityCB;
+	}
+
+	public JComboBox<String> getTemperatureCB() {
+		return temperatureCB;
+	}
+	
+	public JButton getDoRequest() {
+		return doRequest;
+	}
 
 	public JPanel DAPanel;
 
@@ -59,7 +77,6 @@ public class DAView {
 		optionsPanel.add(humidityCBLabel, gbc);
 
 		// humidityComboBox
-		humidityCB = new JComboBox<String>();
 		DefaultComboBoxModel<String> DVHumidity = new DefaultComboBoxModel<String>(); // DV -> defaultValueu
 		DVHumidity.addElement("Humidity");
 		DVHumidity.addElement("None");
@@ -80,7 +97,6 @@ public class DAView {
 		optionsPanel.add(spacer1, gbc);
 
 		// temperatureComboBox
-		temperatureCB = new JComboBox<String>();
 		DefaultComboBoxModel<String> DVTemperature = new DefaultComboBoxModel<String>(); // DV -> defaultValue
 		DVTemperature.addElement("Temperature");
 		DVTemperature.addElement("None");
@@ -101,7 +117,6 @@ public class DAView {
 		optionsPanel.add(spacer2, gbc);
 
 		// velocityComboBox
-		velocityCB = new JComboBox<String>();
 		DefaultComboBoxModel<String> DVVelocity = new DefaultComboBoxModel<String>(); // DV -> defaultValue
 		DVVelocity.addElement("Velocity");
 		DVVelocity.addElement("None");
@@ -122,7 +137,6 @@ public class DAView {
 		optionsPanel.add(spacer3, gbc);
 
 		// doRequestButton
-		JButton doRequest = new JButton();
 		doRequest.setText("Do Request");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
@@ -150,7 +164,6 @@ public class DAView {
 		optionsPanel.add(dataAnalysisCBLabel, gbc);
 
 		// dataAnalysisComboBox
-		dataAnalysisCB = new JComboBox<String>();
 		DefaultComboBoxModel<String> DVAnalysis = new DefaultComboBoxModel<String>(); // DV -> defaultValue
 		DVAnalysis.addElement("Average");
 		DVAnalysis.addElement("Variance");
@@ -171,8 +184,7 @@ public class DAView {
 		gbc.gridy = 2;
 		optionsPanel.add(spacer4, gbc);
 
-		// doRequestButton
-		JButton doAnalysis = new JButton();
+		// doAnalysisButton
 		doAnalysis.setText("Do Analysis");
 		gbc = new GridBagConstraints();
 		gbc.gridx = 2;
